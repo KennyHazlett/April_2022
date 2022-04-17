@@ -1,0 +1,23 @@
+Kenneth Hazlett
+Dream Recorder
+Python
+https://github.com/KennyHazlett/April_2022
+
+
+The Project is a database of dreams.
+Users can register and login.
+Users can view edit and delete their own dreams.
+Users can view other users dreams.
+I am attempting to do some additional work by adding a comment feature.
+The comment feature will be in a specified record of a dream
+After submitting the comment, the user will be directed to a page of comments
+consisting of all comments made in regards to that specific dream.
+Any user can see those comments and any user can add comments.
+I have had an idea where it would be neat to add an anonymous feature so if
+a user felt like they wouldn't want to share their name, they could in fact 
+keep it anonymous but I am not sure how to go about that just yet.
+
+All of the check marked items will be included in the project.
+
+Bonus feature will be bootstrap or another bonus feature that I have not
+made my mind up about yet because I don't know how it is done as of yet.

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Dream</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="d-flex justify-content-between text-nowrap align-items-center m-1 col-12">
+        <h2 class="text-primary">{{user.first_name}} {{user.last_name}}</h2>
+        <div class="d-flex justify-content-around">
+            <a href="/menu" class="btn btn-primary">Return To Main Menu</a>
+        </div>
+    </div>
+    </div>
+    </div>
+    <form action="/record/dream" method="post" class="col-11 p-4 my-4 text-primary mx-auto">
+        <h5 class="text-primary d-flex justify-content-around">Record Your Dream</h5>
+        {% with messages = get_flashed_messages(category_filter=['dream']) %}
+        {% if messages %}
+        <div class="alert alert-danger" role="alert">
+            <strong>You made a mistake. Launch Sequence Initiated in 5.4.3.2.1</strong>
+            {% for message in messages %}
+            <p>{{message}}</p>
+            {% endfor %}
+        </div>
+        {% endif %}
+        {% endwith %}
+        <div class="d-flex justify-content-center">
+            <div class="form-group">
+                <label for="dream">Record Your Dream Here</label>
+                <textarea name="dream" cols="100" rows="5" class="form-control"></textarea>
+            </div>
+        </div>
+        <div class="d-flex justify-content-between">
+            <div class="form-group">
+                <label for="first_name">Enter Your First Name Here</label>
+                <input type="text" name="first_name" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="last_name">Enter Your Last Name Here</label>
+                <input type="text" name="last_name" class="form-control">
+            </div>
+        </div>
+        <div class="d-flex justify-content-between">
+            <div class="form-group">
+                <label for="date_of_dream">Select Today's Date</label>
+                <input type="datetime-local" name="date_of_dream" class="form-control">
+            </div>
+            <div>
+                <div class="form-group">
+                    <label for="type_of_dream">Choose Type of Dream</label>
+                    <div>
+                        <select name="type_of_dream">
+                            <option value="" disabled selected hidden>Choose a Type</option>
+                            <option value="Weird">Weird</option>
+                            <option value="Awesome">Awesome</option>
+                            <option value="Scary">Scary</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="d-flex justify-content-center">
+            <br>
+            <input type="submit" value="Finalize Entry of Dream" class="btn btn-primary">
+        </div>
+    </form>
+</body>
+
+</html>
