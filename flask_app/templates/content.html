@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Content</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="d-flex justify-content-between text-nowrap align-items-center m-1 col-12">
+        <h2 class="text-primary">{{user.first_name}} {{user.last_name}}</h2>
+        <div class="d-flex justify-content-around">
+            <a href="/menu" class="btn btn-primary">Return To Main Menu</a>
+        </div>
+    </div>
+    <div>
+        <h5 class="text-primary d-flex justify-content-around">Recording Of Dream</h5>
+        <div class="card col-10 mx-auto my-5 text-primary">
+            <div class="card-body text-center">
+                <p class="card-text">{{dream.dream}}</p>
+                <p class="card-text">{{dream.first_name}} {{dream.last_name}}</p>
+                <p class="card-text">{{dream.date_of_dream.strftime("%B,%d,%Y")}}</p>
+                <p class="card-text">{{dream.type_of_dream}}</p>
+            </div>
+        </div>
+    </div>
+    <form action="/record/comments" method="post">
+        <div class="d-flex justify-content-center text-primary">
+            <div class="form-group text-center">
+                <label for="comments">Comment</label>
+                <textarea name="comments" cols="100" rows="5" class="form-control"></textarea>
+                <input type="hidden" value="{{dream.id}}" name="dreams_id">
+            </div>
+        </div>
+        <div class="d-flex justify-content-center m-1">
+            <input type="submit" value="Add A Comment" class="btn btn-primary">
+        </div>
+    </form>
+    <div class="d-flex justify-content-end col-12 m-1">
+        <a href="/logout" class="btn btn-primary">Logout</a>
+    </div>
+</body>
+
+</html>
