@@ -8,4 +8,4 @@ The backend is built with Python and Flask and the frontend with Bootstrap.
 
 ## Demo
 ### Registration
-! [registration gif] (/ReadMe/registration.gif)
+! [registration gif] (/ReadMe/registration.gif))
