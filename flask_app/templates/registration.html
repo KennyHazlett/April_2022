@@ -5,55 +5,55 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Registration</title>
+    <link rel="stylesheet" href="../static/style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 
-<body>
-    <div class="d-flex justify-content-around text-nowrap text-center">
-        <form action="/register" method="post" class="p-4 bg-light text-primary">
-            <h2>Dream Recorder Registration</h2>
-            {% with messages = get_flashed_messages(category_filter=['register']) %}
-            {% if messages %}
-            <div class="alert alert-danger" role="alert">
-                <strong>You made a mistake. Launch Sequence Initiated in 5.4.3.2.1</strong>
-                {% for message in messages %}
-                <p>{{message}}</p>
-                {% endfor %}
-            </div>
-            {% endif %}
-            {% endwith %}
-            <div class="form-group">
-                <label for="first_name">First Name:</label>
-                <input type="text" name="first_name" class="form-control">
-            </div>
-            <div class="form-group">
-                <label for="last_name">Last Name:</label>
-                <input type="text" name="last_name" class="form-control">
-            </div>
-            <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="text" name="email" class="form-control">
-            </div>
-            <div class="form-group">
-                <label for="password">Password:</label>
-                <input type="password" name="password" class="form-control">
-            </div>
-            <div class="form-group">
-                <label for="confirm">Confirm Password:</label>
-                <input type="password" name="confirm" class="form-control">
-            </div>
-            <div class="d-flex justify-content-center">
-                <input type="submit" value="Create New Profile" class="btn btn-primary">
-            </div>
-            <div class="d-flex justify-content-center">
-                <div>
-                    <br>
-                    <a href="/login/page" name="login" class="btn btn-primary">Already Have A Login?</a>
+<body class="bg-registration">
+    <div class="d-flex text-nowrap m-4 justify-content-center text-center">
+        <div id="border">
+            <form action="/register" method="post">
+                <h5>Join Dream Recorder</h5>
+                {% with messages = get_flashed_messages(category_filter=['register']) %}
+                {% if messages %}
+                <div class="alert alert-danger" role="alert">
+                    <strong>You made a mistake. Launch Sequence Initiated in 5.4.3.2.1</strong>
+                    {% for message in messages %}
+                    <p>{{message}}</p>
+                    {% endfor %}
                 </div>
-            </div>
-        </form>
+                {% endif %}
+                {% endwith %}
+                <div class="form-group">
+                    <input type="text" placeholder="First Name" name="first_name" class="form-control-sm">
+                </div>
+                <div class="form-group">
+                    <input type="text" placeholder="Last Name" name="last_name" class="form-control-sm">
+                </div>
+                <div class="form-group">
+                    <input type="text" placeholder="Email Address" name="email" class="form-control-sm">
+                </div>
+                <div class="form-group">
+                    <input type="password" placeholder="Choose Password" name="password" class="form-control-sm">
+                </div>
+                <div class="form-group">
+                    <input type="password" placeholder="Confirm Password" name="confirm" class="form-control-sm">
+                </div>
+                <div class="d-flex justify-content-center">
+                    <input type="submit" value="Next" class="btn-registration">
+                </div>
+                <div class="d-flex justify-content-center">
+                    <div>
+                        <h6 class="m-3">Have an account already?</h6>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <a href="/login/page" name="login" class="btn-registration">Log In</a>
+                </div>
+            </form>
+        </div>
     </div>
 </body>
 

@@ -6,42 +6,46 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Content</title>
+    <link rel="stylesheet" href="../static/style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 
-<body>
-    <div class="d-flex justify-content-between text-nowrap align-items-center m-1 col-12">
-        <h2 class="text-primary">{{user.first_name}} {{user.last_name}}</h2>
-        <div class="d-flex justify-content-around">
-            <a href="/menu" class="btn btn-primary">Return To Main Menu</a>
+<body class="bg-registration m-3">
+    <div class="d-flex text-nowrap text-center">
+        <div>
+            <a href="/menu" class="btn-registration">Return To Main Menu</a>
         </div>
     </div>
-    <div>
-        <h5 class="text-primary d-flex justify-content-around">Recording Of Dream</h5>
-        <div class="card col-10 mx-auto my-5 text-primary">
-            <div class="card-body text-center">
-                <p class="card-text">{{dream.dream}}</p>
-                <p class="card-text">{{dream.first_name}} {{dream.last_name}}</p>
-                <p class="card-text">{{dream.date_of_dream.strftime("%B,%d,%Y")}}</p>
-                <p class="card-text">{{dream.type_of_dream}}</p>
+    <div class="d-flex text-center justify-content-center">
+        <div>
+            <h5>Recording Of Dream</h5>
+            <div id="border">
+                <div>
+                    <div>
+                        <p>{{dream.dream}}</p>
+                        <p>{{dream.first_name}} {{dream.last_name}}</p>
+                        <p>{{dream.date_of_dream.strftime("%B,%d,%Y")}}</p>
+                        <p>{{dream.type_of_dream}}</p>
+                    </div>
+                </div>
+                <form action="/record/comments" method="post" id="comment-section">
+                    <div>
+                        <h5>Leave a comment here</h5>
+                        <div>
+                            <textarea placeholder="Start typing..." rows="4" cols="30" name="comments"></textarea>
+                            <input type="hidden" value="{{dream.id}}" name="dreams_id">
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-center mt-2 mb-2">
+                        <input type="submit" value="Post Your Comment" class="btn-registration">
+                    </div>
+                </form>
             </div>
         </div>
     </div>
-    <form action="/record/comments" method="post">
-        <div class="d-flex justify-content-center text-primary">
-            <div class="form-group text-center">
-                <label for="comments">Comment</label>
-                <textarea name="comments" cols="100" rows="5" class="form-control"></textarea>
-                <input type="hidden" value="{{dream.id}}" name="dreams_id">
-            </div>
-        </div>
-        <div class="d-flex justify-content-center m-1">
-            <input type="submit" value="Add A Comment" class="btn btn-primary">
-        </div>
-    </form>
-    <div class="d-flex justify-content-end col-12 m-1">
-        <a href="/logout" class="btn btn-primary">Logout</a>
+    <div class="mt-3">
+        <a href="/logout" class="btn-registration">Logout</a>
     </div>
 </body>
 
