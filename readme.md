@@ -7,5 +7,4 @@ The backend is built with Python and Flask and the frontend with Bootstrap and C
 * 
 
 ## Demo
-### Demo
-![demo mov](/Gif/Demo.mov)
+![demo gif](/Gif/Demo.gif)
