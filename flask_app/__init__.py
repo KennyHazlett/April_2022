@@ -7,5 +7,10 @@ app.secret_key = "Kenny."
 
 
 @app.route("/")
-def init_view():
-    return index
+def home_view():
+    return "./templates/registration.html"
+
+
+# @app.route("/")
+# def init_view():
+#     return index
