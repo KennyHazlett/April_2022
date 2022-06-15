@@ -1,5 +1,4 @@
 from flask import Flask, render_template
-from .controllers.users import index
 
 app = Flask(__name__)
 
