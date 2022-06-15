@@ -1,1 +1,1 @@
-web: gunicorn server
+web: gunicorn dream_recorder.server
