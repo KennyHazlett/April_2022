@@ -8,7 +8,7 @@ app.secret_key = "Kenny."
 
 @app.route("/")
 def home_view():
-    return "./templates/registration.html"
+    return render_template("registration.html")
 
 
 # @app.route("/")
