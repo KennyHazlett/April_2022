@@ -1,1 +1,1 @@
-web: gunicorn dream_recorder.server
+web: gunicorn flask_app.__init__
