@@ -3,6 +3,7 @@ from flask_app.__init__ import app
 from flask_app.models.user import User
 from flask_app.models.dream import Dream
 from flask_bcrypt import Bcrypt
+from db import mysql
 bcrypt = Bcrypt(app)
 
 
