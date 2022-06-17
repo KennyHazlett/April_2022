@@ -9,6 +9,10 @@ def home_view():
     return render_template("registration.html")
 
 
+@app.route("/login/page")
+def login_page():
+    return render_template("login.html")
+
 # @app.route("/")
 # def init_view():
 #     return index
