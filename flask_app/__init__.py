@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask
 from flask import render_template, redirect, session, request, flash
 from flask_app.__init__ import app
 from flask_app.models.user import User
