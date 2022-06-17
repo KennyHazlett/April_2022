@@ -1,10 +1,9 @@
-from flask import Flask
+from flask import Flask, appcontext_popped
 from flask import render_template, redirect, session, request, flash
 from flask_app.models.user import User
 from flask_app.models.dream import Dream
 from flask_bcrypt import Bcrypt
-from db import mysql
-bcrypt = Bcrypt(app)
+bcrypt = Bcrypt(appcontext_popped)
 app = Flask(__name__)
 
 app.secret_key = "Kenny."
