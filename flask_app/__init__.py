@@ -1,14 +1,13 @@
-from flask import Flask
-from flask import render_template
-from flask_app.controllers import comments, dreams, users
-from flask_app.models import comment, dream, user
-from flask_app.templates import content, edit_content, edit_dream, login, menu, record, registration
+from flask import Flask, render_template
+from flask_app import controllers
 
 
 app = Flask(__name__)
 
 
 app.secret_key = "Kenny."
+
+app.run(debug=True)
 
 
 # @app.route("/")
