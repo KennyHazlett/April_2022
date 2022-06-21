@@ -5,10 +5,10 @@ class MySQLConnection:
     def __init__(self):
 
         connection = pymysql.connect(
-            host=app.config['MYSQL_DATABASE_HOST'],
-            user=app.config['MYSQL_DATABASE_USER'],
-            password=app.config['MYSQL_DATABASE_PASSWORD'],
-            db=app.config['MYSQL_DATABASE_DB'],
+            host='us-cdbr-east-05.cleardb.net',
+            user='b50db7f6268a94',
+            password='6653554a',
+            db='heroku_3184de52a8125ef',
             charset='utf8mb4',
             cursorclass=pymysql.cursors.DictCursor,
             autocommit=True)
