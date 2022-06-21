@@ -21,12 +21,12 @@ class Dream:
     @classmethod
     def save(cls, data):
         query = "INSERT INTO dreams (dream, first_name, last_name, date_of_dream, type_of_dream, user_id) VALUES (%(dream)s,%(first_name)s,%(last_name)s,%(date_of_dream)s,%(type_of_dream)s,%(user_id)s);"
-        return connectToMySQL(cls.db_name).query_db(query, data)
+        return connectToMySQL().query_db(query, data)
 
     @classmethod
     def get_all(cls):
         query = "SELECT * FROM dreams;"
-        results = connectToMySQL(cls.db_name).query_db(query)
+        results = connectToMySQL().query_db(query)
         all_dreams = []
         for row in results:
             print(row['date_of_dream'])
@@ -36,13 +36,13 @@ class Dream:
     @classmethod
     def get_one(cls, data):
         query = "SELECT * FROM dreams WHERE id = %(id)s;"
-        results = connectToMySQL(cls.db_name).query_db(query, data)
+        results = connectToMySQL().query_db(query, data)
         return cls(results[0])
 
     @classmethod
     def get_one_with_comments(cls, data):
         query = "SELECT * FROM dreams LEFT JOIN comments on dreams.id = comments.dreams_id WHERE dreams.id = %(id)s;"
-        results = connectToMySQL(cls.db_name).query_db(query, data)
+        results = connectToMySQL().query_db(query, data)
         # print(results)
         dream = cls(results[0])
         for data in results:
@@ -63,12 +63,12 @@ class Dream:
     @classmethod
     def update(cls, data):
         query = "UPDATE dreams SET dream=%(dream)s, first_name=%(first_name)s, last_name=%(last_name)s, date_of_dream=%(date_of_dream)s, type_of_dream=%(type_of_dream)s, created_at= NOW() updated_at=NOW() WHERE id = %(id)s;"
-        return connectToMySQL(cls.db_name).query_db(query, data)
+        return connectToMySQL().query_db(query, data)
 
     @classmethod
     def destroy(cls, data):
         query = "DELETE FROM dreams WHERE id = %(id)s;"
-        return connectToMySQL(cls.db_name).query_db(query, data)
+        return connectToMySQL().query_db(query, data)
 
     @staticmethod
     def validate_dream(dream):
