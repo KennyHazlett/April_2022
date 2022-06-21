@@ -49,7 +49,7 @@ class User:
     def validate_register(user):
         is_valid = True
         query = "SELECT * FROM users WHERE email = %(email)s;"
-        results = connectToMySQL(User.db).query_db(query, user)
+        results = connectToMySQL().query_db(query, user)
         if len(results) >= 1:
             flash("Email Already Taken. Use Another!", "register")
             is_valid = False
