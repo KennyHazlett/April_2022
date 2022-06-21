@@ -1,14 +1,14 @@
 from flask import Flask, render_template, redirect, session, request, flash
-from flask_app.models.user import User
-from flask_app.models.dream import Dream
-from flask_bcrypt import Bcrypt
-# from db import mysql
-from flask_app.models.comment import Comment
 
 
 app = Flask(__name__)
 
 
+from flask_app.models.user import User
+from flask_app.models.dream import Dream
+from flask_bcrypt import Bcrypt
+
+from flask_app.models.comment import Comment
 app.secret_key = "Kenny."
 
 app.run(debug=True)
