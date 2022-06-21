@@ -11,8 +11,6 @@ from flask_bcrypt import Bcrypt
 from flask_app.models.comment import Comment
 app.secret_key = "Kenny."
 
-app.run(debug=True)
-
 bcrypt = Bcrypt(app)
 
 @app.route('/')
