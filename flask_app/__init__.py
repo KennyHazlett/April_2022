@@ -7,7 +7,6 @@ from flask_app.models.comment import Comment
 
 
 app = Flask(__name__)
-from flask_app import controllers
 
 
 app.secret_key = "Kenny."
