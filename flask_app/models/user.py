@@ -16,16 +16,15 @@ class User:
         self.created_at = data['created_at']
         self.updated_at = data['updated_at']
 
-
     @classmethod
     def save(cls, data):
         query = "INSERT INTO users (first_name,last_name,email,password) VALUES(%(first_name)s,%(last_name)s,%(email)s,%(password)s)"
-        return connectToMySQL().query_db(query, data)
+        return connectToMySQL(cls.db).query_db(query, data)
 
     @classmethod
     def get_all(cls):
         query = "SELECT * FROM users;"
-        results = connectToMySQL().query_db(query)
+        results = connectToMySQL(cls.db).query_db(query)
         users = []
         for row in results:
             users.append(cls(row))
@@ -34,7 +33,7 @@ class User:
     @classmethod
     def get_by_email(cls, data):
         query = "SELECT * FROM users WHERE email = %(email)s;"
-        results = connectToMySQL().query_db(query, data)
+        results = connectToMySQL(cls.db).query_db(query, data)
         if len(results) < 1:
             return False
         return cls(results[0])
@@ -42,14 +41,14 @@ class User:
     @classmethod
     def get_by_id(cls, data):
         query = "SELECT * FROM users WHERE id = %(id)s;"
-        results = connectToMySQL().query_db(query, data)
+        results = connectToMySQL(cls.db).query_db(query, data)
         return cls(results[0])
 
     @staticmethod
     def validate_register(user):
         is_valid = True
         query = "SELECT * FROM users WHERE email = %(email)s;"
-        results = connectToMySQL().query_db(query, user)
+        results = connectToMySQL(User.db).query_db(query, user)
         if len(results) >= 1:
             flash("Email Already Taken. Use Another!", "register")
             is_valid = False

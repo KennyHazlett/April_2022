@@ -1,14 +1,14 @@
 import pymysql.cursors
-from flask_app import app
+
 
 class MySQLConnection:
-    def __init__(self):
+    def __init__(self, db):
 
         connection = pymysql.connect(
-            host='us-cdbr-east-05.cleardb.net',
-            user='b50db7f6268a94',
-            password='6653554a',
-            db='heroku_3184de52a8125ef',
+            host='localhost',
+            user='root',
+            password='Ageofultron2!',
+            db=db,
             charset='utf8mb4',
             cursorclass=pymysql.cursors.DictCursor,
             autocommit=True)
@@ -42,5 +42,5 @@ class MySQLConnection:
                 self.connection.close()
 
 
-def connectToMySQL():
-    return MySQLConnection()
+def connectToMySQL(db):
+    return MySQLConnection(db)

@@ -1,4 +1,5 @@
 from flask_app.config.mysqlconnection import connectToMySQL
+from flask import flash
 
 
 class Comment:
@@ -17,9 +18,9 @@ class Comment:
     @classmethod
     def save(cls, data):
         query = "INSERT INTO comments (comments, first_name, last_name, dreams_id, users_id, created_at, updated_at) VALUES (%(comments)s, %(first_name)s, %(last_name)s, %(dreams_id)s, %(users_id)s, NOW(), NOW());"
-        return connectToMySQL().query_db(query, data)
+        return connectToMySQL(cls.db_name).query_db(query, data)
 
     @classmethod
     def destroy_comment(cls, data):
         query = "DELETE FROM comments WHERE id = %(id)s;"
-        return connectToMySQL().query_db(query, data)
+        return connectToMySQL(cls.db_name).query_db(query, data)
