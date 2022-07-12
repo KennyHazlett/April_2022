@@ -20,7 +20,7 @@ class Dream:
 
     @classmethod
     def save(cls, data):
-        query = "INSERT INTO dreams (dream, first_name, last_name, date_of_dream, type_of_dream, user_id) VALUES (%(dream)s,%(first_name)s,%(last_name)s,%(date_of_dream)s,%(type_of_dream)s,%(user_id)s);"
+        query = "INSERT INTO dreams (dream, first_name, last_name, date_of_dream, type_of_dream, user_id, created_at, updated_at) VALUES (%(dream)s,%(first_name)s,%(last_name)s,%(date_of_dream)s,%(type_of_dream)s,%(user_id)s, NOW(), NOW());"
         return connectToMySQL(cls.db_name).query_db(query, data)
 
     @classmethod

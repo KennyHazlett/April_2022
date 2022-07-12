@@ -18,7 +18,7 @@ class User:
 
     @classmethod
     def save(cls, data):
-        query = "INSERT INTO users (first_name,last_name,email,password) VALUES(%(first_name)s,%(last_name)s,%(email)s,%(password)s)"
+        query = "INSERT INTO users (first_name,last_name,email,password,created_at,updated_at) VALUES(%(first_name)s,%(last_name)s,%(email)s,%(password)s,NOW(), NOW())"
         return connectToMySQL(cls.db).query_db(query, data)
 
     @classmethod
@@ -69,10 +69,11 @@ class User:
             is_valid = False
         if not any(char.isdigit() for char in user['password']):
             flash('Password Should Have At Least One Number', "register")
-            print('Password Should Have At Least One Numberr')
+            print('Password Should Have At Least One Number')
             is_valid = False
         if not any(char.isupper() for char in user['password']):
             flash('Password Should Have At Least One Uppercase Letter', "register")
             print('Password Should Have At Least One Uppercase Letter')
             is_valid = False
         return is_valid
+

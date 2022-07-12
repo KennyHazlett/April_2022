@@ -37,11 +37,11 @@ def login_page():
 def login():
     user = User.get_by_email(request.form)
     if not user:
-        flash("Invalid Email", "login")
-        return redirect('/login')
+        flash("In all seriousness, you are probably using an invalid email. Try again or create a new account.", "login")
+        return redirect('/login/page')
     if not bcrypt.check_password_hash(user.password, request.form['password']):
-        flash("Invalid Password", "login")
-        return redirect('/login')
+        flash("Hey you, here again are we? You are probably using an invalid password. Try again or create a new account.", "login")
+        return redirect('/login/page')
     session['user_id'] = user.id
     return redirect('/menu')
 
